@@ -1,6 +1,6 @@
 # Week 1 review: NVIDIA ecosystem, GPU fundamentals & environment
 
-> **Week 1 · Day 7** · Deliverable for `nvidia-ai-plan/week-01/day-07`
+> **Week 1 · Day 7** · Deliverable for `nvidia/week-01/day-07`
 > Status: **draft for review** · Last updated: **2026-09-30**
 > Inputs: [`nvidia-stack.md`](nvidia-stack.md) (Day 2) · [`cpu-vs-gpu.md`](cpu-vs-gpu.md) (Day 4) · [`gpu-memory.md`](gpu-memory.md) (Day 5) · [`pytorch-primer`](../00-environment/pytorch-primer/) (Day 6)
 

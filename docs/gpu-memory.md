@@ -1,6 +1,6 @@
 # GPU memory: why a model OOMs with compute to spare
 
-> **Week 1 · Day 5** · Deliverable for `nvidia-ai-plan/week-01/day-05`
+> **Week 1 · Day 5** · Deliverable for `nvidia/week-01/day-05`
 > Status: **draft: model and predictions done, OOM boundary pending pod run** · Last updated: **2026-09-30**
 > Code: [`01-cuda/vram-lab`](../01-cuda/vram-lab/) · Environment: [`00-environment/versions.md`](../00-environment/versions.md)
 
