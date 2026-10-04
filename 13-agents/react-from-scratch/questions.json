@@ -1,0 +1,47 @@
+[
+  {
+    "id": "q1",
+    "question": "Sum the amounts in alert A-1001. Which policy does the pattern match, and what action does it require?",
+    "expected": "28,500; POL-01 structuring; escalate to an investigator",
+    "tools": [
+      "get_alert",
+      "calculator",
+      "search_policy"
+    ]
+  },
+  {
+    "id": "q2",
+    "question": "Does alert A-1002 need enhanced due diligence? If so, by when?",
+    "expected": "Yes (wires above 100,000 to a high-risk jurisdiction, POL-03); within 5 business days",
+    "tools": [
+      "get_alert",
+      "search_policy"
+    ]
+  },
+  {
+    "id": "q3",
+    "question": "Can alert A-1003 be closed, and what must the closing note say?",
+    "expected": "Yes, expected activity under POL-04; the note names the equal payroll payments",
+    "tools": [
+      "get_alert",
+      "search_policy"
+    ]
+  },
+  {
+    "id": "q4",
+    "question": "Of alerts A-1001, A-1002 and A-1003, which have a total amount above 200,000?",
+    "expected": "Only A-1002 (238,500); A-1001 is 28,500 and A-1003 is 12,600",
+    "tools": [
+      "get_alert",
+      "calculator"
+    ]
+  },
+  {
+    "id": "q5",
+    "question": "How much cash did Northwind Trading deposit last year?",
+    "expected": "Not in the data: only a 7-day alert window exists, so the agent must say it can't tell",
+    "tools": [
+      "get_alert"
+    ]
+  }
+]

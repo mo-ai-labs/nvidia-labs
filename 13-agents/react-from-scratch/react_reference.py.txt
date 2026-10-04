@@ -1,0 +1,36 @@
+# Reference solution for run(). Peek only after you have typed yours.
+
+
+def run(question: str):
+    messages = [
+        {"role": "system", "content": SYSTEM},
+        {"role": "user", "content": question},
+    ]
+    for step in range(1, MAX_STEPS + 1):
+        msg = (
+            client.chat.completions.create(
+                model=MODEL,
+                messages=messages,
+                tools=SCHEMAS,
+                tool_choice="auto",
+                temperature=1.0,
+                top_p=0.95,
+            )
+            .choices[0]
+            .message
+        )
+        messages.append(msg)
+        if msg.content:
+            print(f"[{step}] THINK   {msg.content.strip()[:300]}")
+        if not msg.tool_calls:  # stop condition: a final answer
+            return {"answer": msg.content, "steps": step, "stopped": "answer"}
+        for call in msg.tool_calls:  # act
+            try:
+                args = json.loads(call.function.arguments)
+                obs = TOOLS[call.function.name](**args)
+            except Exception as e:  # bad args or tool error: show the model
+                obs = f"ERROR: {type(e).__name__}: {e}"
+            print(f"[{step}] ACT     {call.function.name}({call.function.arguments})")
+            print(f"[{step}] OBSERVE {obs[:200]}")
+            messages.append({"role": "tool", "tool_call_id": call.id, "content": obs})
+    return {"answer": None, "steps": MAX_STEPS, "stopped": "max_steps"}

@@ -1,0 +1,97 @@
+[
+  {
+    "id": "q1",
+    "question": "Sum the amounts in alert A-1001. Which policy does the pattern match, and what action does it require?",
+    "expected": "28,500; POL-01 structuring; escalate to an investigator",
+    "tools": [
+      "get_alert",
+      "calculator",
+      "search_policy"
+    ],
+    "react": {
+      "answer": "The sum of the amounts in alert A-1001 is **28,500** (9500 + 9400 + 9600).\n\nThe pattern \"cash deposits\" matches policy **POL-01**, which states:  \n\"Several cash deposits just under the 10,000 reporting threshold within a short window are a structuring red flag: escalate to an investigator.\"\n\n**Required action:** Escalate to an investigator.",
+      "steps": 4,
+      "stopped": "answer"
+    },
+    "plan_execute": {
+      "answer": "Sum: 28500; Policy matched: cash deposits  \nAction required: escalate to an investigator",
+      "llm_calls": 8,
+      "stopped": "answer"
+    }
+  },
+  {
+    "id": "q2",
+    "question": "Does alert A-1002 need enhanced due diligence? If so, by when?",
+    "expected": "Yes (wires above 100,000 to a high-risk jurisdiction, POL-03); within 5 business days",
+    "tools": [
+      "get_alert",
+      "search_policy"
+    ],
+    "react": {
+      "answer": "Yes, alert A-1002 requires enhanced due diligence.\n\n**Reason:**  \n- The alert involves wires to a high\u2011risk jurisdiction (Blue Harbor Imports).  \n- Internal policy POL\u201103 states: \u201cWires to or from a high\u2011risk jurisdiction above 100,000 require enhanced due diligence within 5 business days.\u201d  \n- Both transaction amounts ($120,000 and $118,500) exceed the $100,000 threshold.\n\n**Timeline:**  \nEnhanced due diligence must be completed **within 5 business days** from the time the alert was generated. (The exact deadline depends on the alert\u2019s generation date, which is not provided in the alert data.)",
+      "steps": 4,
+      "stopped": "answer"
+    },
+    "plan_execute": {
+      "answer": "Yes, alert A-1002 requires enhanced due diligence.  \nIt must be completed within 5 business days of the alert generation date (specific date not provided in the data).",
+      "llm_calls": 9,
+      "stopped": "answer"
+    }
+  },
+  {
+    "id": "q3",
+    "question": "Can alert A-1003 be closed, and what must the closing note say?",
+    "expected": "Yes, expected activity under POL-04; the note names the equal payroll payments",
+    "tools": [
+      "get_alert",
+      "search_policy"
+    ],
+    "react": {
+      "answer": "Yes, alert A\u20111003 can be closed.  \nThe closing note must name the payroll pattern, for example:  \n\n**\u201cAlert closed: regular equal payroll payments to employees (three equal payments of 4,200 over a 30\u2011day window) are expected activity.\u201d**",
+      "steps": 3,
+      "stopped": "answer"
+    },
+    "plan_execute": {
+      "answer": "Yes, alert A-1003 can be closed.  \nThe closing note must state: \"Regular equal payroll payments to employees are expected activity: close the alert with a note naming the payroll pattern.\"",
+      "llm_calls": 6,
+      "stopped": "answer"
+    }
+  },
+  {
+    "id": "q4",
+    "question": "Of alerts A-1001, A-1002 and A-1003, which have a total amount above 200,000?",
+    "expected": "Only A-1002 (238,500); A-1001 is 28,500 and A-1003 is 12,600",
+    "tools": [
+      "get_alert",
+      "calculator"
+    ],
+    "react": {
+      "answer": "A-1002 is the only alert with a total amount above 200,000 (its amounts sum to 238,500). The totals for the other alerts are: A-1001 = 28,500 and A-1003 = 12,600, both below the threshold.",
+      "steps": 8,
+      "stopped": "answer"
+    },
+    "plan_execute": {
+      "answer": "A-1002\nIts total amount is 238,500, which exceeds 200,000.",
+      "llm_calls": 11,
+      "stopped": "answer"
+    }
+  },
+  {
+    "id": "q5",
+    "question": "How much cash did Northwind Trading deposit last year?",
+    "expected": "Not in the data: only a 7-day alert window exists, so the agent must say it can't tell",
+    "tools": [
+      "get_alert"
+    ],
+    "react": {
+      "answer": "28500",
+      "steps": 6,
+      "stopped": "answer"
+    },
+    "plan_execute": {
+      "answer": "28500\nAnswer based on step\u202f2 result.",
+      "llm_calls": 14,
+      "stopped": "answer"
+    }
+  }
+]
