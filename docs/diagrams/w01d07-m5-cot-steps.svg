@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" font-family="Segoe UI, sans-serif"><rect width="800" height="600" fill="#fff"/>
+<defs><marker id="h" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#555"/></marker></defs>
+<text x="400.0" y="40" font-size="22" text-anchor="middle" font-weight="600">Chain-of-thought: write the steps before the answer</text>
+<rect x="40" y="125" width="220" height="70" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="150.0" y="155.0" font-size="15" text-anchor="middle">Q: 3 cash deposits</text>
+<text x="150.0" y="175.0" font-size="15" text-anchor="middle">of $4,900 in 2 days?</text>
+<rect x="560" y="125" width="200" height="70" rx="10" fill="#ffc9c9" stroke="#ef4444" stroke-width="2"/>
+<text x="660.0" y="165.0" font-size="15" text-anchor="middle">A: Not suspicious</text>
+<rect x="40" y="285" width="220" height="70" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="150.0" y="325.0" font-size="15" text-anchor="middle">Same Q</text>
+<rect x="40" y="395" width="220" height="50" rx="10" fill="#fff3bf" stroke="#f59e0b" stroke-width="2"/>
+<text x="150.0" y="425.0" font-size="15" text-anchor="middle">Each is under $10k</text>
+<rect x="300" y="395" width="200" height="50" rx="10" fill="#fff3bf" stroke="#f59e0b" stroke-width="2"/>
+<text x="400.0" y="425.0" font-size="15" text-anchor="middle">Total $14,700</text>
+<rect x="540" y="395" width="220" height="50" rx="10" fill="#fff3bf" stroke="#f59e0b" stroke-width="2"/>
+<text x="650.0" y="425.0" font-size="15" text-anchor="middle">Pattern: just under CTR</text>
+<rect x="540" y="485" width="220" height="60" rx="10" fill="#b2f2bb" stroke="#22c55e" stroke-width="2"/>
+<text x="650.0" y="520.0" font-size="15" text-anchor="middle">A: Possible structuring</text>
+<polyline points="260,160 556,160" fill="none" stroke="#ef4444" stroke-width="2"  marker-end="url(#h)"/>
+<text x="408.0" y="152.0" font-size="14" text-anchor="middle" fill="#ef4444">jump straight to it</text>
+<polyline points="150,355 150,391" fill="none" stroke="#555" stroke-width="2"  marker-end="url(#h)"/>
+<polyline points="260,420 296,420" fill="none" stroke="#555" stroke-width="2"  marker-end="url(#h)"/>
+<polyline points="500,420 536,420" fill="none" stroke="#555" stroke-width="2"  marker-end="url(#h)"/>
+<polyline points="650,445 650,481" fill="none" stroke="#555" stroke-width="2"  marker-end="url(#h)"/>
+<text x="40" y="105" font-size="16" fill="#757575">Standard prompting (1 call)</text>
+<text x="40" y="265" font-size="16" fill="#757575">Chain-of-thought (still 1 call)</text>
+<text x="40" y="500" font-size="15" fill="#b45309">yellow = &#x27;a series of</text>
+<text x="40" y="519" font-size="15" fill="#b45309">intermediate reasoning steps&#x27;</text>
+</svg>

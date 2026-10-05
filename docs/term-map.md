@@ -21,4 +21,20 @@ GH-600 steps `m0`, `m7`, `m8`, `m9` (bets, controls file, Learn module, commit) 
 
 *Same idea in all four columns: autonomy is earned per action, the human gate sits **before** anything irreversible, and real controls live in the layer that can't be skipped (rulesets, `before_tool_callback`, `PreToolUse` hooks / deny rules).*
 
+## GH-600 Week 1 terms (W1 D7 `m4-rows`)
+
+Pair each term with its runtime-agent idea **from memory**, then check against the "Suggested pairs" reveal. The left two columns are facts from your GH-600 Week 1 repo (`github-labs`).
+
+| GH-600 term | What it is in Copilot (your repo) | Runtime-agent pair (your answer) |
+|---|---|---|
+| **Custom agent** | `.github/agents/NAME.agent.md`: YAML frontmatter (`description` required; `tools`, `model`, `target`…) + prompt body up to 30,000 chars ([config ref](https://docs.github.com/en/copilot/reference/custom-agents-configuration#yaml-frontmatter-properties)) | Task contract ❌, should be: an agent with its **own system prompt, model and tool allowlist** |
+| **Planner vs implementer agent** | `planner.agent.md` is read-only (no `edit`/`execute`) and returns a plan. `implementer.agent.md` writes the code only after the plan is approved | Planner vs executor in plan-and-execute ✅ |
+| **`plan-approved` label** | `.github/workflows/plan-gate.yml` runs on `issues: assigned`: Copilot assigned without the label → it posts a comment. It signals but doesn't lock (D4 Bet A). A required check is what enforces it | Human approval gate (`interrupt()` + resume) ✅ |
+| **`copilot-instructions.md`** | `.github/copilot-instructions.md`: repo-wide custom instructions added to every Copilot request in the repo ([add repo instructions](https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions#creating-custom-instructions)) | System prompt / standing instructions ✅ |
+| **Agent task template** | `.github/ISSUE_TEMPLATE/agent-task.yml`: an issue form that forces a well-scoped task before Copilot is assigned ([well-scoped issues](https://docs.github.com/en/copilot/tutorials/cloud-agent/get-the-best-results#making-sure-your-issues-are-well-scoped)) | Task contract: inputs, expected output, success criteria ✅ |
+
+**`plan-approved` gap:** your label check only comments after Copilot starts. What would you need so it actually *blocks*, the way `interrupt()` pauses the run before it acts? → **My answer:** a required status check. **Correction:** that blocks the *merge*, so Copilot has already run and written code. To block *before it acts*, gate the start itself: only a workflow assigns Copilot, and only once `plan-approved` exists. Keep the required check as the merge-time backstop.
+
+**After the reveal:** which pair did you miss, and why? → **Custom agent.** I forgot the `tools` and `model` frontmatter fields, and those fields are what make it a full agent (own prompt + model + tool allowlist), not just a task description.
+
 Sources: [ADK tool confirmation](https://adk.dev/tools-custom/confirmation/) · [ADK callbacks](https://adk.dev/callbacks/types-of-callbacks/) · [Claude tool use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) · [Claude Agent SDK permissions](https://code.claude.com/docs/en/agent-sdk/permissions)

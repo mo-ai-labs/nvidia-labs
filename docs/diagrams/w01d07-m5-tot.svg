@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" font-family="Segoe UI, sans-serif"><rect width="800" height="600" fill="#fff"/>
+<defs><marker id="h" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#555"/></marker></defs>
+<text x="400.0" y="40" font-size="22" text-anchor="middle" font-weight="600">Tree-of-thoughts: branch, judge, backtrack</text>
+<rect x="320" y="70" width="160" height="55" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="400.0" y="102.5" font-size="15" text-anchor="middle">Alert A-1003</text>
+<rect x="90" y="200" width="200" height="70" rx="10" fill="#fff3bf" stroke="#f59e0b" stroke-width="2"/>
+<text x="190.0" y="230.0" font-size="15" text-anchor="middle">Idea: structuring</text>
+<text x="190.0" y="250.0" font-size="15" text-anchor="middle">score: likely</text>
+<rect x="300" y="200" width="200" height="70" rx="10" fill="#ffc9c9" stroke="#ef4444" stroke-width="2"/>
+<text x="400.0" y="230.0" font-size="15" text-anchor="middle">Idea: payroll</text>
+<text x="400.0" y="250.0" font-size="15" text-anchor="middle">score: impossible</text>
+<rect x="510" y="200" width="200" height="70" rx="10" fill="#fff3bf" stroke="#f59e0b" stroke-width="2"/>
+<text x="610.0" y="230.0" font-size="15" text-anchor="middle">Idea: wire fan-out</text>
+<text x="610.0" y="250.0" font-size="15" text-anchor="middle">score: maybe</text>
+<rect x="90" y="350" width="200" height="70" rx="10" fill="#ffc9c9" stroke="#ef4444" stroke-width="2"/>
+<text x="190.0" y="380.0" font-size="15" text-anchor="middle">deposits not cash</text>
+<text x="190.0" y="400.0" font-size="15" text-anchor="middle">score: dead end</text>
+<rect x="510" y="350" width="200" height="70" rx="10" fill="#b2f2bb" stroke="#22c55e" stroke-width="2"/>
+<text x="610.0" y="380.0" font-size="15" text-anchor="middle">6 new payees, 1 day</text>
+<text x="610.0" y="400.0" font-size="15" text-anchor="middle">score: sure</text>
+<polyline points="360,125 190,196" fill="none" stroke="#555" stroke-width="2"  marker-end="url(#h)"/>
+<polyline points="400,125 400,196" fill="none" stroke="#555" stroke-width="2"  marker-end="url(#h)"/>
+<polyline points="440,125 610,196" fill="none" stroke="#555" stroke-width="2"  marker-end="url(#h)"/>
+<polyline points="190,270 190,346" fill="none" stroke="#555" stroke-width="2"  marker-end="url(#h)"/>
+<polyline points="290,385 490,355 606,274" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#h)"/>
+<text x="462.0" y="330.0" font-size="14" text-anchor="middle" fill="#8b5cf6">backtrack</text>
+<polyline points="610,270 610,346" fill="none" stroke="#555" stroke-width="2"  marker-end="url(#h)"/>
+<text x="375" y="295" font-size="15" fill="#ef4444">pruned</text>
+<text x="60" y="470" font-size="15" fill="#757575">Every box = the LLM proposing a thought. Every score = the LLM judging it.</text>
+<text x="60" y="489" font-size="15" fill="#757575">So: many calls. Compares paths at EVERY step (self-consistency only at the end).</text>
+<text x="60" y="508" font-size="15" fill="#757575">Game of 24: CoT 4% -&gt; ToT 74%. Pays off on search problems with dead ends.</text>
+</svg>

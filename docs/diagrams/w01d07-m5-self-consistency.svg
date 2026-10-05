@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" font-family="Segoe UI, sans-serif"><rect width="800" height="600" fill="#fff"/>
+<defs><marker id="h" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#555"/></marker></defs>
+<text x="400.0" y="40" font-size="22" text-anchor="middle" font-weight="600">Self-consistency: sample several paths, vote on the answers</text>
+<rect x="40" y="230" width="160" height="80" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="120.0" y="265.0" font-size="15" text-anchor="middle">Same CoT</text>
+<text x="120.0" y="285.0" font-size="15" text-anchor="middle">prompt</text>
+<rect x="270" y="75" width="320" height="55" rx="10" fill="#fff3bf" stroke="#f59e0b" stroke-width="2"/>
+<text x="430.0" y="107.5" font-size="15" text-anchor="middle">path 1: under $10k each... -&gt; REVIEW</text>
+<rect x="270" y="180" width="320" height="55" rx="10" fill="#fff3bf" stroke="#f59e0b" stroke-width="2"/>
+<text x="430.0" y="212.5" font-size="15" text-anchor="middle">path 2: total $14.7k, 2 days... -&gt; REVIEW</text>
+<rect x="270" y="290" width="320" height="55" rx="10" fill="#ffc9c9" stroke="#ef4444" stroke-width="2"/>
+<text x="430.0" y="322.5" font-size="15" text-anchor="middle">path 3: total $1.47k (slip)... -&gt; CLOSE</text>
+<rect x="270" y="400" width="320" height="55" rx="10" fill="#fff3bf" stroke="#f59e0b" stroke-width="2"/>
+<text x="430.0" y="432.5" font-size="15" text-anchor="middle">path 4: near CTR line... -&gt; REVIEW</text>
+<rect x="640" y="215" width="140" height="100" rx="10" fill="#b2f2bb" stroke="#22c55e" stroke-width="2"/>
+<text x="710.0" y="250.0" font-size="15" text-anchor="middle">Majority vote</text>
+<text x="710.0" y="270.0" font-size="15" text-anchor="middle">REVIEW 3</text>
+<text x="710.0" y="290.0" font-size="15" text-anchor="middle">CLOSE 1</text>
+<polyline points="200,250 266,105" fill="none" stroke="#555" stroke-width="2"  marker-end="url(#h)"/>
+<polyline points="200,260 266,207" fill="none" stroke="#555" stroke-width="2"  marker-end="url(#h)"/>
+<polyline points="200,280 266,317" fill="none" stroke="#555" stroke-width="2"  marker-end="url(#h)"/>
+<polyline points="200,300 266,427" fill="none" stroke="#555" stroke-width="2"  marker-end="url(#h)"/>
+<polyline points="590,102 636,250" fill="none" stroke="#22c55e" stroke-width="2"  marker-end="url(#h)"/>
+<polyline points="590,207 636,260" fill="none" stroke="#22c55e" stroke-width="2"  marker-end="url(#h)"/>
+<polyline points="590,317 636,275" fill="none" stroke="#ef4444" stroke-width="2"  marker-end="url(#h)"/>
+<polyline points="590,427 636,290" fill="none" stroke="#22c55e" stroke-width="2"  marker-end="url(#h)"/>
+<text x="30" y="340" font-size="15" fill="#b45309">temperature &gt; 0</text>
+<text x="270" y="490" font-size="15" fill="#757575">N paths = N calls. Paths never see each other;</text>
+<text x="270" y="509" font-size="15" fill="#757575">only FINAL answers are compared, at the end.</text>
+<text x="270" y="528" font-size="15" fill="#757575">At temperature 0 all paths are identical: N x cost, no gain.</text>
+</svg>

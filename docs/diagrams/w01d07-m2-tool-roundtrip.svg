@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 580" font-family="Segoe UI, sans-serif"><rect width="800" height="580" fill="#fff"/>
+<defs><marker id="h" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#555"/></marker></defs>
+<text x="400" y="45" font-size="24" text-anchor="middle">The tool round trip: what messages[] must hold</text>
+<rect x="40" y="80" width="380" height="60" rx="10" fill="#e9ecef" stroke="#1e1e1e" stroke-width="2"/>
+<text x="230.0" y="115.0" font-size="16" text-anchor="middle">system: You are an AML assistant...</text>
+<rect x="40" y="160" width="380" height="60" rx="10" fill="#a5d8ff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="230.0" y="195.0" font-size="16" text-anchor="middle">user: Summarise alert A-1001</text>
+<rect x="40" y="240" width="380" height="110" rx="10" fill="#d0bfff" stroke="#8b5cf6" stroke-width="2"/>
+<text x="230.0" y="270.0" font-size="16" text-anchor="middle">assistant (finish_reason: tool_calls)</text>
+<text x="230.0" y="290.0" font-size="16" text-anchor="middle">tool_calls[0].id = call_1</text>
+<text x="230.0" y="310.0" font-size="16" text-anchor="middle">name = get_alert</text>
+<text x="230.0" y="330.0" font-size="16" text-anchor="middle">arguments = &#x27;{&quot;alert_id&quot;:&quot;A-1001&quot;}&#x27;</text>
+<rect x="40" y="380" width="380" height="80" rx="10" fill="#b2f2bb" stroke="#22c55e" stroke-width="2"/>
+<text x="230.0" y="405.0" font-size="16" text-anchor="middle">tool</text>
+<text x="230.0" y="425.0" font-size="16" text-anchor="middle">tool_call_id = call_1</text>
+<text x="230.0" y="445.0" font-size="16" text-anchor="middle">content = alert JSON</text>
+<rect x="470" y="240" width="300" height="100" rx="10" fill="#ffc9c9" stroke="#ef4444" stroke-width="2"/>
+<text x="620.0" y="275.0" font-size="16" text-anchor="middle">Q12: drop this message and</text>
+<text x="620.0" y="295.0" font-size="16" text-anchor="middle">call_1 points at nothing.</text>
+<text x="620.0" y="315.0" font-size="16" text-anchor="middle">OpenAI rejects it (400).</text>
+<rect x="470" y="370" width="300" height="100" rx="10" fill="#fff3bf" stroke="#f59e0b" stroke-width="2"/>
+<text x="620.0" y="405.0" font-size="16" text-anchor="middle">Q13: arguments is a STRING.</text>
+<text x="620.0" y="425.0" font-size="16" text-anchor="middle">args = json.loads(arguments)</text>
+<text x="620.0" y="445.0" font-size="16" text-anchor="middle">then get_alert(**args)</text>
+<rect x="40" y="490" width="380" height="60" rx="10" fill="#ffffff" stroke="#1e1e1e" stroke-width="2"/>
+<text x="230.0" y="525.0" font-size="16" text-anchor="middle">call the model again with ALL of the above</text>
+<path d="M40,420 Q10,350 40,280" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#h)"/>
+<line x1="470" y1="290" x2="424" y2="290" stroke="#ef4444" stroke-width="2" marker-end="url(#h)"/>
+<line x1="470" y1="400" x2="424" y2="330" stroke="#f59e0b" stroke-width="2" marker-end="url(#h)"/>
+</svg>
