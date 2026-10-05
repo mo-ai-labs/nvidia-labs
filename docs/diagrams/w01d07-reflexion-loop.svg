@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" font-family="Segoe UI, sans-serif"><rect width="800" height="600" fill="#fff"/>
+<defs><marker id="h" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10z" fill="#555"/></marker></defs>
+<text x="400.0" y="40" font-size="22" text-anchor="middle" font-weight="600">Reflexion: learn from failure without touching weights</text>
+<rect x="60" y="110" width="200" height="80" rx="10" fill="#d0bfff" stroke="#8b5cf6" stroke-width="2"/>
+<text x="160.0" y="145.0" font-size="15" text-anchor="middle">ACTOR (LLM agent)</text>
+<text x="160.0" y="165.0" font-size="15" text-anchor="middle">trial 1: try the task</text>
+<rect x="420" y="110" width="220" height="80" rx="10" fill="#ffd8a8" stroke="#f59e0b" stroke-width="2"/>
+<text x="530.0" y="145.0" font-size="15" text-anchor="middle">FEEDBACK</text>
+<text x="530.0" y="165.0" font-size="15" text-anchor="middle">tests fail / score 0 / &#x27;wrong&#x27;</text>
+<rect x="400" y="280" width="260" height="90" rx="10" fill="#fff3bf" stroke="#f59e0b" stroke-width="2"/>
+<text x="530.0" y="310.0" font-size="15" text-anchor="middle">SELF-REFLECTION (LLM)</text>
+<text x="530.0" y="330.0" font-size="15" text-anchor="middle">&#x27;I summed only 2 of 3 deposits.</text>
+<text x="530.0" y="350.0" font-size="15" text-anchor="middle">Next time: list ALL amounts first.&#x27;</text>
+<rect x="60" y="285" width="220" height="80" rx="10" fill="#c3fae8" stroke="#06b6d4" stroke-width="2"/>
+<text x="170.0" y="320.0" font-size="15" text-anchor="middle">EPISODIC MEMORY</text>
+<text x="170.0" y="340.0" font-size="15" text-anchor="middle">lessons, as plain text</text>
+<rect x="60" y="430" width="600" height="70" rx="10" fill="#ffc9c9" stroke="#ef4444" stroke-width="2"/>
+<text x="360.0" y="470.0" font-size="15" text-anchor="middle">Model WEIGHTS: never change. No fine-tuning, no gradient updates.</text>
+<polyline points="260,150 416,150" fill="none" stroke="#555" stroke-width="2"  marker-end="url(#h)"/>
+<text x="338.0" y="142.0" font-size="14" text-anchor="middle" fill="#555">attempt</text>
+<polyline points="530,190 530,276" fill="none" stroke="#555" stroke-width="2"  marker-end="url(#h)"/>
+<polyline points="400,325 284,325" fill="none" stroke="#555" stroke-width="2"  marker-end="url(#h)"/>
+<text x="342.0" y="317.0" font-size="14" text-anchor="middle" fill="#555">text</text>
+<polyline points="160,285 160,194" fill="none" stroke="#8b5cf6" stroke-width="2"  marker-end="url(#h)"/>
+<text x="160.0" y="231.5" font-size="14" text-anchor="middle" fill="#8b5cf6">added to prompt, trial 2</text>
+</svg>

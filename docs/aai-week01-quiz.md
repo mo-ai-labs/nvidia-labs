@@ -103,6 +103,28 @@ All three are **reasoning** strategies with **no tools**. Think of three kids do
 
 - That gain comes from a **search** problem with many dead ends. Routine triage isn't shaped like that, so ToT is rarely worth its many calls there.
 
+### Reflexion: bonus mini-lesson ([abstract](https://arxiv.org/abs/2303.11366))
+
+_Day 6 only placed Reflexion in the table and the survey; this covers how it works._
+
+![Reflexion loop](diagrams/w01d07-reflexion-loop.svg)
+
+**1. Learning through words, not weights:** Reflexion reinforces agents *"not by updating weights, but instead through linguistic feedback."*
+
+**2. The loop:** agents *"verbally reflect on task feedback signals, then maintain their own reflective text in an episodic memory buffer to induce better decision-making in subsequent trials."*
+
+- Try → get feedback → an LLM writes a lesson in plain English → the lesson goes into the **prompt** of the next trial.
+- Where the "memory" lives (my answer ✅): **in the prompt/context**, as plain text. That makes it cheap (no training) but limited: lessons use up context space, and a bad reflection teaches a bad lesson.
+- vs traditional RL: no extensive training samples and no fine-tuning, just a better prompt.
+
+**3. Feedback can come from anywhere:** *"various types (scalar values or free-form language) and sources (external or internally simulated) of feedback signals."*
+
+- Types: a number (pass/fail, a score) or words. Sources: external (unit tests, a compiler, a reviewer) or self-judged by the LLM.
+
+**4. The result:** *"91% pass@1 accuracy on the HumanEval coding benchmark, surpassing the previous state-of-the-art GPT-4 that achieves 80%."* Coding works well because unit tests give a **clear, reliable, immediate** failure signal.
+
+**Which AML task fits Reflexion?** My pick: the SAR narrative ❌. Corrected: **generating a SQL detection rule**, checked against labelled historical alerts (it must flag the known cases). That's an objective, immediate test, the AML equivalent of unit tests. Reviewer comments on a SAR narrative *are* valid free-form feedback, but they're subjective and arrive days later, so the agent could reflect its way to the wrong lesson. **Rule: Reflexion is only as good as its failure signal.**
+
 ### Seven patterns in one table
 
 | Pattern | Who plans | LLM calls per task | Best for | Weakness | Survey category ([2402.02716](https://arxiv.org/html/2402.02716)) |
@@ -118,6 +140,23 @@ All three are **reasoning** strategies with **no tools**. Think of three kids do
 _ReAct → Reflexion rows carried over from Saturday's [`react-from-scratch/README.md` §2](../13-agents/react-from-scratch/README.md)._
 
 > **Exam line:** CoT, self-consistency and ToT are **reasoning** strategies inside one model call or a few, with no tools. ReAct, plan-and-execute and ReWOO are **agent** loops that add tools and observations.
+
+### Not covered yet (listed W1 D7)
+
+Objective 5.2 names *CoT and task decomposition*, both covered. These others exist; it's unconfirmed which ones the exam tests.
+
+| Pattern | Group | One-line idea | Related to |
+|---|---|---|---|
+| **Reasoning models / thinking mode** | Reasoning | Model trained to reason before answering; switched per request (Nemotron: `chat_template_kwargs: {"enable_thinking": false}`, or `low_effort`) ([NIM: Nemotron 3 Super, Reasoning](https://docs.nvidia.com/nim/large-language-models/2.0.4/turbo/get-started-nemotron-3-super-120b-a12b.html#reasoning)) | Built-in CoT. **Day 4 side quest** `sq-reasoning-toggle`; Day 16 tuning lever |
+| Least-to-most | Reasoning | Easier subquestions first, solved in order, answers fed forward | CoT + task decomposition |
+| Plan-and-Solve | Reasoning | Zero-shot CoT with "make a plan, then carry it out" | Zero-shot CoT + plan-and-execute, no tools |
+| Program-of-thought / PAL | Reasoning | Model writes code for the maths; an interpreter runs it | Fixes CoT arithmetic; like the `calculator` tool |
+| Graph of Thoughts | Reasoning | ToT where branches can also merge | Tree-of-thoughts |
+| Self-Refine | Reasoning | Draft → self-critique → rewrite, within one task | Reflexion without retries across trials |
+| Step-back prompting | Reasoning | Ask the general principle first, then apply it | Prompt technique |
+| LLMCompiler | Agent | Planner emits a dependency graph; independent tool calls run in parallel | ReWOO, parallel (Q6 distractor) |
+| LATS | Agent | Tree search over agent actions + reflection | ToT + ReAct + Reflexion |
+| Multi-agent debate / critic | Agent | Agents argue, or one critiques another | **Day 18** multi-agent orchestration |
 
 **Worth paying for on a SAR recommendation:** *My pick:* tree-of-thoughts. *Plan's view:* self-consistency. A SAR decision is a short, checkable answer (file / don't file), so N independent runs + a vote catch a one-off slip. ToT's backtracking pays off on search problems with dead ends, which a single decision isn't. Either way, a human still approves the filing.
 
