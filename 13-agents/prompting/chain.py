@@ -2,19 +2,14 @@ import os
 import sys
 from pathlib import Path
 
+from dotenv import load_dotenv
 from openai import OpenAI
 from pydantic import BaseModel, ValidationError
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "react-from-scratch"))
 import tools  # Day 2's synthetic alerts
 
-# Reuse the repo's shared key file (gitignored) unless the var is already set.
-_ENV = Path(__file__).resolve().parents[2] / "00-environment" / ".env"
-if _ENV.exists():
-    for line in _ENV.read_text(encoding="utf-8").splitlines():
-        if "=" in line and not line.lstrip().startswith("#"):
-            k, v = line.split("=", 1)
-            os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+load_dotenv()  # nearest .env, searching up from this file
 
 client = OpenAI(
     base_url=os.environ.get("NIM_BASE_URL", "https://integrate.api.nvidia.com/v1"),

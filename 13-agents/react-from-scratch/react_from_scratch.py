@@ -4,17 +4,11 @@ Source: ReAct (arXiv 2210.03629) section 2. Native tool calling replaces the tex
 """
 
 import json, os, sys
-from pathlib import Path
+from dotenv import load_dotenv
 from openai import OpenAI
 from tools import TOOLS, SCHEMAS
 
-# Reuse the repo's shared key file (gitignored) unless the var is already set.
-_ENV = Path(__file__).resolve().parents[2] / "00-environment" / ".env"
-if _ENV.exists():
-    for line in _ENV.read_text(encoding="utf-8").splitlines():
-        if "=" in line and not line.lstrip().startswith("#"):
-            k, v = line.split("=", 1)
-            os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+load_dotenv()  # nearest .env, searching up from this file
 
 client = OpenAI(
     base_url=os.environ.get("NIM_BASE_URL", "https://integrate.api.nvidia.com/v1"),
