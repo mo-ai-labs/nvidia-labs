@@ -37,4 +37,12 @@ Pair each term with its runtime-agent idea **from memory**, then check against t
 
 **After the reveal:** which pair did you miss, and why? → **Custom agent.** I forgot the `tools` and `model` frontmatter fields, and those fields are what make it a full agent (own prompt + model + tool allowlist), not just a task description.
 
+## GH-600 Day 8 ↔ tool calling (W2 D1 `m5-rows`)
+
+| GH-600 term | Runtime-agent pair (your answer) | Where you saw it today |
+|---|---|---|
+| **Agent profile `tools:` list** | Tool allowlist in the registry ✅ | Only what `registry.schemas()` sends exists for the model (`13-agents/tools/registry.py`) |
+| **Tool alias** | Function schema `name` ✅ | `get_alert`, `search_policy`: the identifier the model calls; renamed to `t1..t4` in `desc_test_anon.py` |
+| **Custom agent `description`** | Tool description the model routes on ✅ | The docstring → `description` in `schemas()`; blanked to `"Tool."` in `desc_test.py` |
+
 Sources: [ADK tool confirmation](https://adk.dev/tools-custom/confirmation/) · [ADK callbacks](https://adk.dev/callbacks/types-of-callbacks/) · [Claude tool use](https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview) · [Claude Agent SDK permissions](https://code.claude.com/docs/en/agent-sdk/permissions)
