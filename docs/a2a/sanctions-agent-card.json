@@ -1,0 +1,47 @@
+{
+  "name": "Sanctions Screening Agent",
+  "description": "Screens a counterparty (person or entity) against the bank's sanctions lists and returns a match decision with evidence. Owned by the Sanctions team. Synthetic example.",
+  "version": "1.0.0",
+  "provider": {
+    "organization": "Example Bank, Sanctions Team",
+    "url": "https://sanctions.example-bank.test"
+  },
+  "supportedInterfaces": [
+    {
+      "url": "https://screening.example-bank.test/a2a",
+      "protocolBinding": "JSONRPC",
+      "protocolVersion": "1.0"
+    }
+  ],
+  "capabilities": { "streaming": false, "pushNotifications": false },
+  "securitySchemes": {
+    "bankOAuth": {
+      "oauth2SecurityScheme": {
+        "description": "OAuth 2.0 client credentials: one client per calling agent",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.example-bank.test/oauth2/token",
+            "scopes": { "screening:run": "Submit counterparty screening tasks" }
+          }
+        }
+      }
+    }
+  },
+  "securityRequirements": [
+    { "schemes": { "bankOAuth": { "list": ["screening:run"] } } }
+  ],
+  "defaultInputModes": ["text/plain", "application/json"],
+  "defaultOutputModes": ["application/json"],
+  "skills": [
+    {
+      "id": "screen-counterparty",
+      "name": "Screen counterparty",
+      "description": "Checks a person or entity name against sanctions lists. Asks for more identifiers (e.g. date of birth) when the name is ambiguous.",
+      "tags": ["sanctions", "screening", "aml", "counterparty"],
+      "examples": [
+        "Is Orbit Trading Ltd on any sanctions list?",
+        "Screen Maria Fictitia, born 1980-04-12, before we onboard her as a beneficiary"
+      ]
+    }
+  ]
+}
