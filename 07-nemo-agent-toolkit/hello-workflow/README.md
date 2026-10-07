@@ -21,3 +21,13 @@ Gotcha: NAT's NIM default `max_tokens` is 300, so a reasoning model's thoughts g
 Without `flag_alert` in `include`, the agent made no tool call and its final answer just echoed my request as if it was done (the bet was a loss: I guessed it would refuse). With it, the agent called `fincrime__flag_alert` and answered from the server's reply.
 A server-side allowlist is the stronger control because it blocks the tool for every client of that server; a client-side `include` only narrows one agent.
 I want both: defence in depth, per-agent narrowing of a shared server, and protection against other clients of the same server.
+
+## §5 Side quest: NAT as an MCP server
+
+- `nat mcp serve --config_file config.yml` publishes the workflow at `http://localhost:9901/mcp` (defaults: host `localhost`, port `9901`). `nat mcp client tool list --url http://localhost:9901/mcp` lists what it exposes, no MCP Inspector or Node needed.
+- Prediction: all 3 server tools (wrong). Actual: `fincrime__get_alert`, `fincrime__search_policy`, `current_datetime` and `react_agent`. `flag_alert` is absent because the client-side `include` also limits what NAT re-publishes.
+- The whole agent is exposed as one tool (`react_agent`), so another MCP host can call it like any tool.
+- By default the MCP front end exposes **every** tool. Its `tool_names` setting (functions or function groups) narrows that; this is a second allowlist, controlling what others can call, separate from `include`, which controls what the agent can use.
+- A front end decides how the same workflow is exposed: `console` (`nat run`), `fastapi` (`nat serve`), `mcp` (`nat mcp serve`).
+- Not verified yet: the exact YAML nesting for the MCP front-end block under `general`. Check the doc's Filtering MCP Tools section before using it.
+- Revisit: NAT serve and UI on Day 29; eval and profiler on Day 16; tracing on Day 15. MCP server filtering is not revisited in the plan.
