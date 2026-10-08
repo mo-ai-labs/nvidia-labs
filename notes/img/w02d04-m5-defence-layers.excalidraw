@@ -1,0 +1,417 @@
+{
+ "type": "excalidraw",
+ "version": 2,
+ "source": "claude",
+ "elements": [
+  {
+   "id": "e1",
+   "type": "text",
+   "x": 20,
+   "y": 0,
+   "width": 759.0000000000001,
+   "height": 25.0,
+   "text": "Defence in depth: each layer assumes the one before it already failed",
+   "fontSize": 20,
+   "fontFamily": 2,
+   "textAlign": "left",
+   "verticalAlign": "top",
+   "strokeColor": "#1e1e1e",
+   "opacity": 100
+  },
+  {
+   "id": "e2",
+   "type": "text",
+   "x": 20,
+   "y": 34,
+   "width": 654.5,
+   "height": 17.5,
+   "text": "green = built today   \u00b7   yellow dashed = coming   \u00b7   red = where POL-99 got through",
+   "fontSize": 14,
+   "fontFamily": 2,
+   "textAlign": "left",
+   "verticalAlign": "top",
+   "strokeColor": "#555555",
+   "opacity": 100
+  },
+  {
+   "id": "e3",
+   "type": "rectangle",
+   "x": 20,
+   "y": 80,
+   "width": 225,
+   "height": 110,
+   "strokeColor": "#1e1e1e",
+   "backgroundColor": "#fff3bf",
+   "fillStyle": "solid",
+   "strokeWidth": 2,
+   "strokeStyle": "dashed",
+   "roughness": 0,
+   "opacity": 100,
+   "boundElements": [
+    {
+     "type": "text",
+     "id": "e4"
+    }
+   ],
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "id": "e4",
+   "type": "text",
+   "x": 20,
+   "y": 80,
+   "width": 225,
+   "height": 110,
+   "text": "1 \u00b7 Input filter\nretrieval rails on POL-99\n(Day 21)",
+   "fontSize": 14,
+   "fontFamily": 2,
+   "textAlign": "center",
+   "verticalAlign": "middle",
+   "containerId": "e3",
+   "strokeColor": "#1e1e1e",
+   "opacity": 100
+  },
+  {
+   "id": "e5",
+   "type": "arrow",
+   "x": 245,
+   "y": 135,
+   "width": 30,
+   "height": 0,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     30,
+     0
+    ]
+   ],
+   "strokeColor": "#1e1e1e",
+   "strokeWidth": 2,
+   "roughness": 0,
+   "opacity": 100,
+   "endArrowhead": "arrow",
+   "backgroundColor": "transparent"
+  },
+  {
+   "id": "e6",
+   "type": "rectangle",
+   "x": 275,
+   "y": 80,
+   "width": 225,
+   "height": 110,
+   "strokeColor": "#e03131",
+   "backgroundColor": "#ffe3e3",
+   "fillStyle": "solid",
+   "strokeWidth": 2,
+   "strokeStyle": "solid",
+   "roughness": 0,
+   "opacity": 100,
+   "boundElements": [
+    {
+     "type": "text",
+     "id": "e7"
+    }
+   ],
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "id": "e7",
+   "type": "text",
+   "x": 275,
+   "y": 80,
+   "width": 225,
+   "height": 110,
+   "text": "2 \u00b7 Policy prompt\nsystem: 'never guess'\n(talked out of it: investigator run)",
+   "fontSize": 14,
+   "fontFamily": 2,
+   "textAlign": "center",
+   "verticalAlign": "middle",
+   "containerId": "e6",
+   "strokeColor": "#1e1e1e",
+   "opacity": 100
+  },
+  {
+   "id": "e8",
+   "type": "arrow",
+   "x": 500,
+   "y": 135,
+   "width": 30,
+   "height": 0,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     30,
+     0
+    ]
+   ],
+   "strokeColor": "#1e1e1e",
+   "strokeWidth": 2,
+   "roughness": 0,
+   "opacity": 100,
+   "endArrowhead": "arrow",
+   "backgroundColor": "transparent"
+  },
+  {
+   "id": "e9",
+   "type": "rectangle",
+   "x": 530,
+   "y": 80,
+   "width": 225,
+   "height": 110,
+   "strokeColor": "#1e1e1e",
+   "backgroundColor": "#d3f9d8",
+   "fillStyle": "solid",
+   "strokeWidth": 2,
+   "strokeStyle": "solid",
+   "roughness": 0,
+   "opacity": 100,
+   "boundElements": [
+    {
+     "type": "text",
+     "id": "e10"
+    }
+   ],
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "id": "e10",
+   "type": "text",
+   "x": 530,
+   "y": 80,
+   "width": 225,
+   "height": 110,
+   "text": "3 \u00b7 Constrained tools\nsecure_call role check\n+ run_python sandbox",
+   "fontSize": 14,
+   "fontFamily": 2,
+   "textAlign": "center",
+   "verticalAlign": "middle",
+   "containerId": "e9",
+   "strokeColor": "#1e1e1e",
+   "opacity": 100
+  },
+  {
+   "id": "e11",
+   "type": "arrow",
+   "x": 755,
+   "y": 135,
+   "width": 30,
+   "height": 0,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     30,
+     0
+    ]
+   ],
+   "strokeColor": "#1e1e1e",
+   "strokeWidth": 2,
+   "roughness": 0,
+   "opacity": 100,
+   "endArrowhead": "arrow",
+   "backgroundColor": "transparent"
+  },
+  {
+   "id": "e12",
+   "type": "rectangle",
+   "x": 785,
+   "y": 80,
+   "width": 225,
+   "height": 110,
+   "strokeColor": "#1e1e1e",
+   "backgroundColor": "#fff3bf",
+   "fillStyle": "solid",
+   "strokeWidth": 2,
+   "strokeStyle": "dashed",
+   "roughness": 0,
+   "opacity": 100,
+   "boundElements": [
+    {
+     "type": "text",
+     "id": "e13"
+    }
+   ],
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "id": "e13",
+   "type": "text",
+   "x": 785,
+   "y": 80,
+   "width": 225,
+   "height": 110,
+   "text": "4 \u00b7 Output filter\nflag 'pre-cleared /\nfalse positive' answers (Day 21)",
+   "fontSize": 14,
+   "fontFamily": 2,
+   "textAlign": "center",
+   "verticalAlign": "middle",
+   "containerId": "e12",
+   "strokeColor": "#1e1e1e",
+   "opacity": 100
+  },
+  {
+   "id": "e14",
+   "type": "arrow",
+   "x": 1010,
+   "y": 135,
+   "width": 30,
+   "height": 0,
+   "points": [
+    [
+     0,
+     0
+    ],
+    [
+     30,
+     0
+    ]
+   ],
+   "strokeColor": "#1e1e1e",
+   "strokeWidth": 2,
+   "roughness": 0,
+   "opacity": 100,
+   "endArrowhead": "arrow",
+   "backgroundColor": "transparent"
+  },
+  {
+   "id": "e15",
+   "type": "rectangle",
+   "x": 1040,
+   "y": 80,
+   "width": 225,
+   "height": 110,
+   "strokeColor": "#1e1e1e",
+   "backgroundColor": "#fff3bf",
+   "fillStyle": "solid",
+   "strokeWidth": 2,
+   "strokeStyle": "dashed",
+   "roughness": 0,
+   "opacity": 100,
+   "boundElements": [
+    {
+     "type": "text",
+     "id": "e16"
+    }
+   ],
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "id": "e16",
+   "type": "text",
+   "x": 1040,
+   "y": 80,
+   "width": 225,
+   "height": 110,
+   "text": "5 \u00b7 Human escalation\napproval before\nflag_alert (Day 9)",
+   "fontSize": 14,
+   "fontFamily": 2,
+   "textAlign": "center",
+   "verticalAlign": "middle",
+   "containerId": "e15",
+   "strokeColor": "#1e1e1e",
+   "opacity": 100
+  },
+  {
+   "id": "e17",
+   "type": "rectangle",
+   "x": 20,
+   "y": 220,
+   "width": 430,
+   "height": 60,
+   "strokeColor": "#1e1e1e",
+   "backgroundColor": "#d3f9d8",
+   "fillStyle": "solid",
+   "strokeWidth": 2,
+   "strokeStyle": "solid",
+   "roughness": 0,
+   "opacity": 100,
+   "boundElements": [
+    {
+     "type": "text",
+     "id": "e18"
+    }
+   ],
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "id": "e18",
+   "type": "text",
+   "x": 20,
+   "y": 220,
+   "width": 430,
+   "height": 60,
+   "text": "Audit chain (built today): records every call, catches edits.\nRecords, never blocks.",
+   "fontSize": 14,
+   "fontFamily": 2,
+   "textAlign": "center",
+   "verticalAlign": "middle",
+   "containerId": "e17",
+   "strokeColor": "#1e1e1e",
+   "opacity": 100
+  },
+  {
+   "id": "e19",
+   "type": "rectangle",
+   "x": 480,
+   "y": 220,
+   "width": 755,
+   "height": 60,
+   "strokeColor": "#e03131",
+   "backgroundColor": "#fff5f5",
+   "fillStyle": "solid",
+   "strokeWidth": 2,
+   "strokeStyle": "solid",
+   "roughness": 0,
+   "opacity": 100,
+   "boundElements": [
+    {
+     "type": "text",
+     "id": "e20"
+    }
+   ],
+   "roundness": {
+    "type": 3
+   }
+  },
+  {
+   "id": "e20",
+   "type": "text",
+   "x": 480,
+   "y": 220,
+   "width": 755,
+   "height": 60,
+   "text": "Investigator run: POL-99 passed layers 1\u20132, layer 3 allowed it (role has flag_alert),\nonly the model's own choice kept the tool from running. The answer leaked through.",
+   "fontSize": 14,
+   "fontFamily": 2,
+   "textAlign": "center",
+   "verticalAlign": "middle",
+   "containerId": "e19",
+   "strokeColor": "#1e1e1e",
+   "opacity": 100
+  }
+ ],
+ "appState": {
+  "viewBackgroundColor": "#ffffff"
+ },
+ "files": {}
+}

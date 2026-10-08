@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Agent runtime data (audit log, tampered copies)
+app/security/audit*.jsonl
