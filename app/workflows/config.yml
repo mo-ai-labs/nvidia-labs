@@ -1,0 +1,29 @@
+llms:
+  nim_llm:
+    _type: nim
+    model_name: nvidia/nemotron-3-super-120b-a12b
+    temperature: 1.0
+    top_p: 0.95
+    max_tokens: 4096    # NAT's NIM default is 300; a reasoning model's thoughts get cut off mid-sentence
+
+functions:
+  current_datetime:
+    _type: current_datetime
+
+function_groups:
+  fincrime:
+    _type: mcp_client
+    server:
+      transport: stdio
+      command: uv
+      args: ["run", "--with", "mcp", "--with", "pydantic", "python", "../../app/mcp/mcp_server.py"]
+    include:              # the allowlist: flag_alert exists on the server but this agent can't see it
+      - get_alert
+      - search_policy
+
+workflow:
+  _type: react_agent
+  tool_names: [fincrime, current_datetime]
+  llm_name: nim_llm
+  verbose: true
+  parse_agent_response_max_retries: 3

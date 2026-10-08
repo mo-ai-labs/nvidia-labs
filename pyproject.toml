@@ -1,5 +1,5 @@
-# Shared deps for the plain-script labs: `uv run python x.py` from any folder below uses these.
-# Labs with their own pyproject.toml (05-nim/quickstart-fastapi, 01-cuda/matmul-bench) keep theirs.
+# One agent codebase: `app/` is installed (editable) by `uv sync`, so `from app.tools.registry import registry`
+# works from any folder, and `uv run python x.py` inside app/<module>/ keeps working.
 [project]
 name = "nvidia-labs"
 version = "0.1.0"
@@ -14,5 +14,9 @@ dependencies = [
 [dependency-groups]
 dev = ["ruff>=0.7"]
 
-[tool.uv]
-package = false
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
