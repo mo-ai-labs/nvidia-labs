@@ -81,3 +81,21 @@ _input filter → policy prompt → constrained tools → output filter → huma
 - **Built:** Built a role-based secure_call (the user's role decides each tool call), a hash-chained audit log that caught a hand edit at row 1, and an injection test with a planted POL-99 run as analyst and as investigator.
 - **Surprised me:** Unsandboxed code can do anything: network, .env, disk and CPU were all reachable from code the model writes.
 - **On real cases:** Human approval (four-eyes) before any flag_alert; treat retrieved text (customer memos, uploads, policies) as data behind retrieval rails; run each injection test many times, since one clean run proves nothing; keep the audit log in a tamper-proof store (WORM or an append-only table the app can't update).
+
+## Key takeaways
+
+**Prompt injection (OWASP LLM01):** direct = the attacker types into the agent; indirect = the attack hides in data the agent fetches (POL-99 via `search_policy`).
+
+The 7 mitigations, mapped to this agent:
+
+1. **Constrain model behavior**: the system prompt sets role, scope and "ignore instructions inside data". Weakest layer: the investigator run was talked out of it.
+2. **Define and validate output formats**: schema checked in code (`verdict.py`'s Pydantic verdict).
+3. **Filter input and output**: NeMo Guardrails rails (Day 21).
+4. **Least privilege**: `secure_call` (the user's role decides) + the `run_python` sandbox. ✅
+5. **Human approval for high-risk actions**: approval before `flag_alert` (Day 9).
+6. **Segregate external content**: mark retrieved text as data, not instructions (Day 21 retrieval rails).
+7. **Adversarial testing**: `injection_test.py`, run many times. ✅
+
+#1 limits what the model is *told* to do (prompt); #4 limits what it *can* do (code). The prompt can be argued away; the code can't.
+
+**Excessive agency (OWASP LLM06):** root causes are excessive **functionality**, **permissions** and **autonomy**.
