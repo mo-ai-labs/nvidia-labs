@@ -11,7 +11,7 @@ hosted NIM models.
 |---|---|
 | `app/` | The agent, one Python package. Each day adds a module: `reasoning/` (ReAct, plan-and-execute, prompt chain), `tools/` (registry, agent loop, verdict), `mcp/`, `security/`, … `data.py` holds the synthetic alerts and policies. |
 | `app/a2a/` | The A2A agent card |
-| `workflows/` | NeMo Agent Toolkit configs, one folder per workflow |
+| `app/workflows/` | NeMo Agent Toolkit configs, one folder per workflow |
 | `notes/` | Day notes: `dNN-<topic>.md` for AAI days, `gNN-<topic>.md` for GENL days, `d00-*` for the foundations week. Living docs (`term-map.md`, `gap-log.md`, readiness, cheatsheets) have no prefix. Diagrams in `notes/img/`. |
 
 ## Run it

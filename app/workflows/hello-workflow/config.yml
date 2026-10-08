@@ -16,7 +16,7 @@ function_groups:
     server:
       transport: stdio
       command: uv
-      args: ["run", "--with", "mcp", "--with", "pydantic", "python", "../../app/mcp/mcp_server.py"]
+      args: ["run", "--with", "mcp", "--with", "pydantic", "python", "../../mcp/mcp_server.py"]
     include:              # the allowlist: flag_alert exists on the server but this agent can't see it
       - get_alert
       - search_policy
