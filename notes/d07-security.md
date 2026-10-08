@@ -75,3 +75,9 @@ _input filter → policy prompt → constrained tools → output filter → huma
 - **Have today:** constrained tools (`secure_call` role check, `run_python` sandbox) and the audit chain.
 - **Coming:** human approval before `flag_alert` (Day 9), retrieval and output rails (Day 21).
 - **Why layers:** no single layer is reliable against injection. The model can be talked out of its policy prompt (the investigator run proved it) and filters miss paraphrases. So each layer assumes the one before it failed: even a fully hijacked model can't do more than the **user's role** allows, and irreversible actions still wait for a human.
+
+## Reflection
+
+- **Built:** Built a role-based secure_call (the user's role decides each tool call), a hash-chained audit log that caught a hand edit at row 1, and an injection test with a planted POL-99 run as analyst and as investigator.
+- **Surprised me:** Unsandboxed code can do anything: network, .env, disk and CPU were all reachable from code the model writes.
+- **On real cases:** Human approval (four-eyes) before any flag_alert; treat retrieved text (customer memos, uploads, policies) as data behind retrieval rails; run each injection test many times, since one clean run proves nothing; keep the audit log in a tamper-proof store (WORM or an append-only table the app can't update).
