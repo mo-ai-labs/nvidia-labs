@@ -221,3 +221,6 @@ __marimo__/
 
 # Agent runtime data (audit log, tampered copies)
 app/security/audit*.jsonl
+
+# Local eval reports (CI uploads its own as an artifact)
+app/eval/report-*.json
