@@ -1,0 +1,32 @@
+name: agent-eval
+on: [push, pull_request]
+
+jobs:
+  offline-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: cd app/tools && uv run python -c "from app.tools.registry import registry; assert len(registry.schemas()) == 4"
+
+  eval-gate:
+    needs: offline-checks
+    runs-on: ubuntu-latest
+    env:
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      MIN_PASS: "0.8"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: cd app/eval && uv run python run_evals.py
+      - uses: actions/upload-artifact@v4
+        if: always() # upload the report on a failed gate too: that's when you need it
+        with: { name: eval-report, path: app/eval/report-*.json }
+
+  promote:
+    needs: eval-gate
+    # this repo's default branch is master, not main
+    if: github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Promote this agent version (in a real setup - tag it, update the prompt registry, deploy)."
