@@ -93,3 +93,9 @@ _Docs closed. Placed before running anything._
 - The ruleset requires a PR but **0 approvals** and no code-owner review, so today nobody has to sign off. Next: add `.github/CODEOWNERS` and turn on code-owner review.
 - CI artifacts expire (90 days by default), but a bank keeps audit evidence for years, so reports need to be copied to durable storage keyed by version id.
 - The golden set is also governed: changing tests should need the same owners as changing the prompt, otherwise the gate can be tuned to pass (§4).
+
+## Reflection
+
+- **Built / measured:** versioned eval reports, a CI eval gate + ruleset on `master`, run-to-run noise (same version 60–100%), adversarial golden tasks g11–g14.
+- **Surprise:** pass/fail hid a hallucination. On g13, "no answer" and "30 days from memory" both scored FAIL.
+- **On real cases:** grade failure modes, formal sign-off (compliance + model risk, CODEOWNERS), durable evidence keyed by version id, a stable gate (mean of N runs / regression vs last version).
