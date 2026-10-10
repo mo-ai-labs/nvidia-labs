@@ -12,8 +12,8 @@ client = OpenAI(
 MODEL = os.environ.get("AGENT_MODEL", "nvidia/nemotron-3-super-120b-a12b")
 MAX_STEPS = int(os.environ.get("MAX_STEPS", "8"))
 SYSTEM = (
-    "You are a financial-crime investigation agent. Get every fact and number from a tool; "
-    "never guess. When you can answer, reply with the answer and no tool call."
+    "You are a financial-crime investigation agent. "
+    "When you can answer, reply with the answer and no tool call."
 )
 
 
